@@ -1,8 +1,8 @@
-/*
-////////////////////////////////////
+
+/*///////////////////////////////////
 // Linking a JavaScript File
 let js = "amazing";
-console.log(40 + 8 + 23 - 10);
+console.log(40 + 8 + 77 - 10);
 
 ////////////////////////////////////
 // Values and Variables
@@ -16,6 +16,13 @@ console.log(firstName);
 console.log(firstName);
 
 // Variable name conventions
+first word starts with small 2nd with cap or snake casing
+cant start with number
+it can only have letters,numbers and$
+new and function are reserved keywords
+name is reserved too but u can use it.tis legal
+all caps for contants
+name ur variables well so that it makes sense when others read it/
 let jonas_matilda = "JM";
 let $function = 27;
 
@@ -28,17 +35,31 @@ let myCurrentJob = "Teacher";
 let job1 = "programmer";
 let job2 = "teacher";
 
-console.log(myFirstJob);
+console.log(myFirstJob);*/
 
-////////////////////////////////////
+//assignment/
+let country='India'
+let continent='Asia'
+let population=13
+//console.log(country)
+//console.log(continent)
+//console.log(population)
+
+/*///////////////////////////////////
 // Data Types
+
+number,string,boolean,null,undefined,big int,symbol
+
+/
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
-
-// console.log(typeof true);
+console.log(typeof true);
 console.log(typeof javascriptIsFun);
-// console.log(typeof 23);
-// console.log(typeof 'Jonas');
+console.log(typeof 2484768725758754587878563);
+console.log(typeof 'Jonas');
+
+
+//first time declaration takes let.not when reassigning the value of variable
 
 javascriptIsFun = 'YES!';
 console.log(typeof javascriptIsFun);
@@ -58,49 +79,75 @@ let age = 30;
 age = 31;
 
 const birthYear = 1991;
-// birthYear = 1990;
-// const job;
+birthYear = 1990;
+//console.log(birthYear) will throw an error
+// const job; also doesnt work throws error,need to assign value
 
 var job = 'programmer';
 job = 'teacher'
-
+//didnt even declare shit yet executed but like dont do it
 lastName = 'Schmedtmann';
 console.log(lastName);
 
-////////////////////////////////////
+///////data types assignment*/
+
+let isIsland=true;
+let language;
+//console.log(typeof isIsland);
+//console.log(typeof population);
+// console.log(typeof country);
+// console.log(typeof language);
+
+
+//////let,const,var assignment
+
+language='Telugu';
+const countryName='India'
+//countryName='us'
+
+
+
+
+/*///////////////////////////////////
 // Basic Operators
 // Math operators
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
+//console.log multiple values
 console.log(ageJonas, ageSarah);
-
-console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
+//a basic python print statment
+//can concatenate string and int
+console.log(ageJonas * 2+' jonas age', ageJonas / 10, 2 ** 3);
 // 2 ** 3 means 2 to the power of 3 = 2 * 2 * 2
 
 const firstName = 'Jonas';
 const lastName = 'Schmedtmann';
 console.log(firstName + ' ' + lastName);
 
-// Assignment operators
+///Assignment operators
 let x = 10 + 5; // 15
 x += 10; // x = x + 10 = 25
 x *= 4; // x = x * 4 = 100
 x++; // x = x + 1
 x--;
-x--;
+x--;//is equal to saying x-=1
 console.log(x);
 
-// Comparison operators
+////Comparison operators
+const ageJonas = 8;
+const now=2037
+const ageSarah = 55;
 console.log(ageJonas > ageSarah); // >, <, >=, <=
 console.log(ageSarah >= 18);
-
+//storing outputs.below boolean val is stored to const
 const isFullAge = ageSarah >= 18;
+console.log(isFullAge)
 
 console.log(now - 1991 > now - 2018);
 
 ////////////////////////////////////
-// Operator Precedence
+//check out MDN Operator Precedence
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
@@ -112,8 +159,25 @@ x = y = 25 - 10 - 5; // x = y = 10, x = 10
 console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
-console.log(ageJonas, ageSarah, averageAge);
-*/
+console.log(ageJonas, ageSarah, averageAge);*/
+
+///basic operators asssignment
+
+console.log(population/2);
+let pop= 134567558786;
+pop+=1;
+console.log(pop);
+
+let populationFinland=60000000;
+console.log(pop>populationFinland);
+
+let avgPop=330000000;
+console.log(pop<avgPop);
+
+let description='Portugal is in Europe, and its 11 million people speak portuguese'
+
+
+
 
 ////////////////////////////////////
 // Coding Challenge #1
@@ -129,14 +193,17 @@ TEST DATA 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1
 TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall.
 
 GOOD LUCK 😀
-*/
+/
 
-// const massMark = 78;
-// const heightMark = 1.69;
-// const massJohn = 92;
-// const heightJohn = 1.95;
-
-/*
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / (heightJohn **2);
+const markHigherBMI = BMIMark > BMIJohn;
+console.log(BMIMark, BMIJohn, markHigherBMI);
+/
 const massMark = 95;
 const heightMark = 1.88;
 const massJohn = 85;
