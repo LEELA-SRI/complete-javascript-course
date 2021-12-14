@@ -479,6 +479,27 @@ if (day === 'monday') {
 } else {
   console.log('Not a valid day!');
 }
+/////////////////////The switch Statement assignment
+
+language='chinese'
+switch(language){
+  case 'chinese':
+  case 'mandarin':
+    console.log('most num of native speakers')
+    break;
+  case 'spanish':
+    console.log('2nd')
+    break
+  case 'english':
+    console.log('3rd')
+    break
+  case 'hindi':
+    console.log('4th')
+  case 'arabic':
+    console.log('5th')
+  default:
+    console.log('great too')
+}
 
 ////////////////////////////////////
 // Statements and Expressions
@@ -492,6 +513,7 @@ if (23 > 10) {
 
 const me = 'Jonas';
 console.log(`I'm ${2037 - 1991} years old ${me}`);
+
 
 ////////////////////////////////////
 // The Conditional (Ternary) Operator
@@ -512,7 +534,12 @@ console.log(drink2);
 console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
 */
 
+//////////////////////The Conditional (Ternary) Operator assignment
+population=13
+// let op=population>33 ? `${country}'s pop is above avg` :`${country}'s pop is below avg`
+// console.log(op)
 
+console.log(`${country}'s population is ${population>33 ?  'above' : 'below'} avg`)
 ////////////////////////////////////
 // Coding Challenge #4
 

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
 
 let has_a_license=false;
@@ -44,6 +44,14 @@ console.log(cube())
 
 //number and console.log are built in funcs
 
+
+/////////////////////////////assignment
+function describeCountry(country,population,capitalCity){
+    return `${country} has ${population} million people and its capital city is ${capitalCity} `
+}
+console.log(describeCountry('s.korea',52,'seoul'))
+console.log(describeCountry('england',53,'london'))
+console.log(describeCountry('japan',126,'tokyo'))
 */
 
 /////////////////////////////////////////////////////function expression
@@ -58,6 +66,15 @@ let next_num= function(n){
 }
 console.log(next_num(2))
 
+
+
+//////////////////////assignment
+describeCountry=function(population){
+    return `${population*100/1440}%`
+}
+console.log(describeCountry(52))
+console.log(describeCountry(53))
+console.log(describeCountry(126))
 */
 
 ///////////////////////////////////////arrow function
@@ -97,6 +114,8 @@ console.log(half_of_half_and_name(18,'mazzikin'))
 
 
 let describe_population=(country,population)=> `${country} has ${population} million people,which is about ${percentage_of_world(population)}% of the world`
+
+//////////////////////////////assignment
 
 let percentage_of_world=population=> (population*100)/7900
 
@@ -142,8 +161,15 @@ let checkWinner=function (){
         console.log('nobody wins')}
 }
 checkWinner()
-*/
 
+////////////////////////////////assignment
+
+let describePoPulation=(country,population) => `${country} has ${population} million peops,which is about ${percentage_of_world(population)}% of the world`
+let percentage_of_world=population=> (population*100)/7900
+console.log(describePoPulation('japan',125.76))
+console.log(describePoPulation('china',1441))
+console.log(describePoPulation('southkorea',51.78))
+*/
 
 ///////////////////////////////arrays
 //const doesnt let re assignment of primitive values.but array is not a primitive value.but like u cannot change the total const <array name>
@@ -163,13 +189,21 @@ console.log(movie)
 let fav='ragnarok'
 let marvel=['ironman',22-11,movies,movie,fav]
 console.log(marvel)
-let percentage_of_world=population=> (population*100)/7900
-let populations=[51.78,125.76,67,5.98]
-console.log(populations.length===4)
 
-let percentages=new Array(percentage_of_world(populations[0]),percentage_of_world(populations[1]),percentage_of_world(populations[2]),percentage_of_world(populations[3]))
-console.log(percentages)
+///////////////////////////////assignment
+let percentage_of_world = (population) => (population * 100) / 7900;
+let populations = [51.78, 125.76, 67, 5.98];
+console.log(populations.length === 4);
 
+let percentages = new Array(
+  percentage_of_world(populations[0]),
+  percentage_of_world(populations[1]),
+  percentage_of_world(populations[2]),
+  percentage_of_world(populations[3])
+);
+console.log(percentages);
+
+////////////////////////////////Basic Array Operations (Methods)
 let homo=['sapiens']
 console.log(homo)
 //pop removes the last element
@@ -210,8 +244,21 @@ if (homs.includes('ragnarok')) {
     homs.push('ragnarok')
 }
 console.log(homs)
-*/
 
+
+////////////////////////assignment
+let neigh=new Array('china','bhutan','sri lanka')
+neigh.push('utopia')
+console.log(neigh)
+neigh.pop()
+console.log(neigh)
+if (!neigh.includes('germany')) console.log('not european')
+let reqin=neigh.indexOf('sri lanka')
+console.log(reqin)
+neigh[reqin]='s.korea'
+console.log(neigh)
+
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -259,7 +306,7 @@ console.log(bills,tips,total)
 */
 
 ////////////////////////////////objects
-//////////////u get defined when u access a property on an object that doesnt exist
+//////////////u get undefined when u access a property on an object that doesnt exist
 /*
 
 let marvel={
@@ -290,4 +337,268 @@ marvel['spiderman2']='far away from home'
 
 // console.log(`${marvel.luckyLoves} has ${marvel.ironman.length} movies.the first one is ${marvel.ironman[0]}`)
 console.log(marvel)
+
+
+////////////////////////assignment
+let my_country={
+    country:'s.korea',
+    capital:'seoul',
+    language:'han-guk',
+    population:53,
+    neighs:['n.korea','japan','china']
+}
+console.log(my_country)
+console.log(`${my_country.country} has ${my_country.population} million ${my_country.language}-speaking folks, ${my_country.neighs.length} neigh countries and capital called ${my_country.capital}`)
+console.log(`${my_country.country} has ${my_country.population+2} million ${my_country.language}-speaking folks, ${my_country.neighs.length} neigh countries and capital called ${my_country.capital}`)
+console.log(`${my_country.country} has ${my_country['population']+2} million ${my_country.language}-speaking folks, ${my_country.neighs.length} neigh countries and capital called ${my_country.capital}`)
+*/
+/*
+let my_country={
+    country:'s.korea',
+    capital:'seoul',
+    language:'han-guk',
+    population:53,
+    neighs:0,
+    // neighs:['n.korea','japan','china'],
+    pop_diff:function (population){
+        //*this* is just the object which is calling the method here
+        // console.log(this)
+        // return 144-this.population;
+        //we  just created a new property.cuz *this* reps the obj here 
+        this.diff=144-this.population
+        return this.diff;
+    },
+    getSummary:function(){
+        return `${this.country} has ${this['population']} million ${this.language}-speaking folks, ${this.neighs ? `has ${this.neighs.length}` : 'has no'} neigh countries and capital called ${this.capital}`;
+    }
+};
+//*this* is used instead of my_country here to imprve code reusability
+//ex:change the obj name ,hence will call the obj with the latest name.ofc my_cuntry.diff wouldnt work anymore
+//but this.diff will
+console.log(my_country.pop_diff())
+///////////my_country.pop_diff gets the value which here happened to be function,then u pass in the argument
+// console.log(my_country['pop_diff'](99))
+console.log(my_country.diff)
+console.log(my_country.getSummary())
+*/
+///////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs!
+ This time, let's use objects to implement the calculations! 
+ Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their
+full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI
+ (the same method on both objects). 
+Store the BMI value to a property, and also return it from 
+the method.
+3. Log to the console who has the higher BMI, together with 
+the full name and the respective BMI.
+ Example: "John Smith's BMI (28.3) is higher 
+ than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+
+let mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+      this.BMI =this. mass / this.height ** 2;
+      return this.BMI;
+    }
+  };
+
+  let John = {
+    fullName: 'John smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+      this.BMI = this.mass / this.height ** 2;
+      return this.BMI;
+    }
+  };
+  //here mark.BMI wont work in the first line because mark.calcbmi isnt called yet.hence 
+  //mark.calcbmi in the first line and mark,BMI in the second line works
+  console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is ${mark.calcBMI() > John.calcBMI ()? 'higher':'lower'} than ${John.fullName}'s BMI (${John.calcBMI()})`)
+  console.log(mark.BMI,John.BMI)
+  
+mark.calcBMI()
+John.calcBMI()
+console.log(`${mark.fullName}'s BMI (${mark.BMI}) is ${mark.BMI > John.BMI ? 'higher': 'lower'} than ${John.fullName}'s BMI (${John.BMI})`)
+    
+*/
+
+///////////////////////////////for loop
+/*
+for (let i=1;i<=10;i++){
+    console.log(`lifting weights rep ${i}`)
+}
+
+let movie=['thor',
+'chris hemmy',
+ 5-2,
+ 'op',
+'great',
+[1,'dark world','ragnarok']]
+let types=[]
+for (let i=0;i < movie.length;i++) {
+    console.log(movie[i],typeof movie[i])
+    // types[i]=movie[i]
+    types.push(movie[i])
+}
+console.log(types)
+
+let years=[1991,2007,1969,2020]
+let ages=[]
+for(let i=0;i< years.length;i++){
+    
+    ages.push(2037-years[i])
+}
+console.log(ages)
+
+let types=[]
+for (let i=0;i < movie.length;i++) {
+     //continue here refers to skip this part of the loop and move to next elt
+    if (typeof movie[i]!== 'string') continue;
+    console.log(movie[i],typeof movie[i])
+
+}
+for (let i=0;i < movie.length;i++) {
+    //break terminates the whole iteration then and there
+    if (typeof movie[i]=== 'number') break;
+    console.log(movie[i],typeof movie[i])
+
+}
+for (let i=movie.length-1;i>=0;i--){
+    console.log(movie[i],typeof movie[i])
+}
+ for (let i=1;i<4;i++){
+     console.log(`--------exercise-${i}----------`)
+     for (let j=1;j<6;j++){
+         console.log(`----------${i}-rep-${j}------`)
+     }
+ }
+*/
+///////////////////////////: Looping Arrays, Breaking and Continuing assignment
+
+/*
+percentage_of_world = (population) => (population * 100) / 7900;
+populations = [51.78, 125.76, 67, 5.98];
+let percentages2 = [];
+for (let i = 0; i < populations.length; i++) {
+  percentages2.push(percentage_of_world(populations[i]));
+}
+console.log(percentages2);
+*/
+
+///////////////Looping Backwards and Loops in Loops assignment
+
+/*
+let listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  if (listOfNeighbours[i].length == 1) {
+    console.log(`Neighbour:${listOfNeighbours[i]}`);
+  } else {
+    for (let j = 0; j < listOfNeighbours[i].length; j++) {
+      console.log(`Neighbour:${listOfNeighbours[i][j]}`);
+    }
+  }
+}
+
+*/
+
+///////////////////while loop
+
+/*
+let j=1//explicit dec
+while (j<3){//runs while the condition is true
+    console.log(`-------rep-${j}------`)
+    j+=1//explicit dec
+}
+ let dice=Math.trunc(Math.random()*7);
+while (dice!==6){
+    console.log(`rolled a ${dice}`)
+    dice=Math.trunc(Math.random()*7);
+    if (dice===6)console.log('yay 6')
+}
+*/
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+Let's improve Steven's tip calculator even more,
+ this time using loops!
+
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals 
+('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before 
+(no need to repeat) to calculate tips and total values 
+(bill + tip) for every bill value in the bills array. 
+Use a for loop to perform the 10 calculations!
+
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+
+HINT: Call calcTip in the loop and use the push method
+ to add values to the tips and totals arrays 😉
+
+4. BONUS: Write a function 'calcAverage' which takes an 
+array called 'arr' as an argument. 
+This function calculates the average of all numbers 
+in the given array. This is a DIFFICULT challenge 
+(we haven't done this before)! Here is how to solve it:
+  4.1. First, you will need to add up all values in the array.
+   To do the addition, start by creating a variable 'sum' 
+   that starts at 0. Then loop over the array using a for loop.
+   In each iteration, add the current value to the 'sum' variable. 
+   This way, by the end of the loop, you have all values added
+    together
+  4.2. To calculate the average, 
+  divide the sum you calculated before by the length of the array
+   (because that's the number of elements)
+  4.3. Call the function with the 'totals' array
+
+GOOD LUCK 😀
+
+let bills=new Array(22, 295, 176, 440, 37, 105, 10, 1100, 86 ,52 )
+let tips=[]
+let totals=[]
+let calcTip=value =>  value>=50 && value<=300 ? 0.15*value : 0.2*value
+for (let i=0;i<bills.length;i++) {
+    tips.push(calcTip(bills[i]))
+    totals.push(tips[i]+bills[i])
+}
+console.log(tips,totals)
+
+let calcAverage=function(arr){
+    let sum=0;
+    for (let i=0;i<arr.length;i++){
+        
+        sum=sum+arr[i];
+}return sum/arr.length
+}
+console.log(calcAverage(totals))*/
+
+/////////////////The while Loop assignment
+
+/*
+let percentage_of_world = (population) => (population * 100) / 7900;
+let populations = [51.78, 125.76, 67, 5.98];
+let percentages2 = [];
+let i = 0;
+while (i < populations.length) {
+  percentages2.push(percentage_of_world(populations[i]));
+  i++;
+}
+console.log(percentages2);
 */
