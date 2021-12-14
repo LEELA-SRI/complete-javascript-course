@@ -164,18 +164,18 @@ console.log(ageJonas, ageSarah, averageAge);*/
 ///basic operators asssignment
 
 console.log(population/2);
-let pop= 134567558786;
+let pop= 13;
 pop+=1;
 console.log(pop);
 
-let populationFinland=60000000;
+let populationFinland=6;
 console.log(pop>populationFinland);
 
-let avgPop=330000000;
+let avgPop=33;
 console.log(pop<avgPop);
 
-let description='Portugal is in Europe, and its 11 million people speak portuguese'
-
+let description=country+'is in '+continent+', and its '+population+' million people speak '+language
+console.log(description)
 
 
 
@@ -238,6 +238,9 @@ console.log(`String
 multiple
 lines`);
 
+//////////////////////////templates and strings assignment
+description=`${country} is in ${continent}, and its ${population} million people speak ${language}`
+console.log(description)
 
 ////////////////////////////////////
 // Taking Decisions: if / else Statements
@@ -259,7 +262,13 @@ if (birthYear <= 2000) {
   century = 21;
 }
 console.log(century);
-*/
+
+/////////////////////////////////////////if / else Statements assignment
+if (population>avgPop) console.log(`${country}'s population is above average`)
+else{
+  console.log(`${country}'s population is below average`)
+}
+
 
 ////////////////////////////////////
 // Coding Challenge #2
@@ -319,6 +328,13 @@ let n = '1' + 1; // '11'
 n = n - 1;
 console.log(n);
 
+/////////////////////////////Type Conversion and Coercion assignment
+console.log('9'-'5') //4
+console.log('19'-'13'+'17')//617
+console.log('19'-'13'+17)//23
+console.log('123'<57)//false
+console.log(5+6+'4'+9-4-2)//11+4+3=1143
+
 ////////////////////////////////////
 // Truthy and Falsy Values
 
@@ -366,6 +382,13 @@ if (favourite === 23) { // 22 === 23 -> FALSE
 
 if (favourite !== 23) console.log('Why not 23?');
 
+
+///////////////////////////////////////////Equality Operators: == vs. === assignment
+let numNeigh=Number(prompt('neighbouring countries eolmana'))
+if (numNeigh===1) console.log('only hana')
+else if (numNeigh>>1) console.log('more than hana')
+else console.log('hanado')
+
 ////////////////////////////////////
 // Logical Operators
 const hasDriversLicense = true; // A
@@ -389,6 +412,13 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 } else {
   console.log('Someone else should drive...');
 }
+
+
+////////////////////////////////////Logical Operators assignment
+if (language=='english' && population<50 && !isIsland) console.log(`ya should live in ${country}`)
+else console.log(`${country} aint fa ya honey`)
+
+
 */
 
 ////////////////////////////////////
