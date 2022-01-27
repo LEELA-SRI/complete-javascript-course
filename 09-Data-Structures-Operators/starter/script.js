@@ -11,14 +11,14 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  order:function(start,main){
+  order: function (start, main) {
     //cant return comma sep 2 items
-    return [this.starterMenu[start],this.mainMenu[main]]
+    return [this.starterMenu[start], this.mainMenu[main]];
   },
-//sometimes when we need to pass in arguments...what if we dont know 
-//what order to pass it in------destructuring
-//ofc can provide default values
-  delivery:function({start=1,main=0,address,time}){
+  //sometimes when we need to pass in arguments...what if we dont know
+  //what order to pass it in------destructuring
+  //ofc can provide default values
+  delivery: function ({ start = 1, main = 0, address, time }) {
     //console.log(main);
   },
   openingHours: {
@@ -35,14 +35,17 @@ const restaurant = {
       close: 24,
     },
   },
-  orderPasta:function(ing1,ing2,ing3){
+  orderPasta: function (ing1, ing2, ing3) {
     console.log(`here is yo pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
-  orderPizza:function(maining,...others){//packing
-    console.log(maining,...others);//unpacking
-  }
+  ///////another way of writing functions
+  orderPizza(maining, ...others) {
+    //packing
+    console.log(maining, ...others); //unpacking
+  },
 };
 
+//let teams = ['team1', 'team2'];
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -83,6 +86,96 @@ const game = {
     team2: 6.5,
   },
 };
+
+/*
+//////////////////////////////////looping
+console.log(Object.keys(restaurant));
+let values=Object.values(restaurant.openingHours);
+console.log(values);
+for (let day of Object.keys(restaurant)) console.log(day);
+for (let days of Object.values(openingHours)) console.log(days);
+
+let ents=Object.entries(restaurant.openingHours); 
+for(let [key,{open,close}] of ents) console.log(`on ${key} we open at ${open} and close at ${close}`);
+*/
+
+/*
+/////////////////////////////optional chaining
+///conventional way
+if (restaurant.openingHours.thu && restaurant.openingHours.thu.open)
+console.log(restaurant.openingHours.thu.open);
+
+//chaining method
+console.log(restaurant.openingHours?.mon?.open);
+
+//wih methods
+console.log(restaurant.orderPizza?.('tomato','pepparoni') ?? 'not der bruh');
+
+console.log(restaurant.order?.('tomato','pepparoni') ?? 'not der bruh');
+
+//arrays
+let countries=[]
+console.log(countries?.[0] ?? 'nopes');
+
+///////////////////////////////////////for of loop
+let menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (let item of menu) console.log(item);
+for (let [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
+
+let days=['mon','tue','wed','thu','fri','sat']
+for (let i of days) console.log(restaurant.openingHours[i]?.open);
+*/
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, 
+along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console 
+(We already studied how to calculate averages, 
+  you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way,
+ exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object,
+ don't hardcode them (except for "draw"). 
+ HINT: Note how the odds and the game objects
+  have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains
+ the names of the players who scored as properties, and 
+ the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+
+
+
+for (let [num,player] of game.scored.entries()) console.log(`goal ${Number(num )+1} :${player}`);
+let i=0
+let odd=Object.values(game.odds)
+let key=Object.keys(game.odds)
+for (let scores of odd) i=i+scores
+console.log(i/odd.length);
+//for (let score of odd) console.log(`odd of ${key==='x' ? 'draw' : 'victory'} ${game[key]} : ${score}`);
+for ( let [k,v] of Object.entries(game.odds) ) console.log(`odd of ${ k==='x' ? 'draw' :'victory'} ${game[k] || ''}:${v}`);
+
+let scorers={}
+for (let p of game.scored) {
+  scorers[p] ? scorers[p]++ : scorers[p]=1;
+  console.log(scorers[p]);
+}
+console.log(scorers);
+*/
 
 /*
 restaurant.orderPizza('cheese','pepparoni','balogna')
@@ -171,14 +264,12 @@ restaurant.orderPizza && restaurant.orderPizza('cheese','chicken','mushrooms');
 
 ///////////////////////////////////////////// logical and assignment op
 //assigns a value to a var if it is currently truthy
-/*
+
 rest1.owner &&= 'nonamela'
 rest2.owner &&= 'nonamela'
-console.log(rest1.owner,rest2.owner); */
+console.log(rest1.owner,rest2.owner); 
 
 
-
-/*
 
 ////spread and rest work the same depending on where its used
 //like spread: right side of '=' and cc,function calls
@@ -210,10 +301,7 @@ add(2,3)
 add(5,6,3,9)
 add(...[1,5,8,6],2,3)//unpacking here
 
-*/
 
-
-/*
 //////////spread op:it does stuff inplace,doesnt create new variables
 //doesnt work in a template literal
 //cuz {} expects multiple csv
@@ -253,10 +341,7 @@ newrest={...restaurant,michellin_stars:5}
 newrest.name='verdad'
 console.log(newrest.name,restaurant.name);
 console.log(newrest);
-*/
 
-
-/*
 ////////////////////destructuring is like * operation.unpacks an iterable
 //and assigns each one of em to a variable
 //like in python a,b=2,3
@@ -290,10 +375,7 @@ console.log(h,o,p,f,k);
 //default vals
 let [d=1,e=1]=[8]
 console.log(d,e);
-*/
 
-
-/*
 ///////////////////obj destructuring
 let {name,openingHours,categories}=restaurant
 
@@ -368,4 +450,3 @@ printGoals(...game.scored)
 console.log(((team1 > team2) && 'team2') ||((team2 > team1) && 'team1') || 'draw' );
 
 */
-
